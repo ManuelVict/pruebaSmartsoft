@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { CrearFacturaComponent } from './caja/crear-factura/crear-factura.component';
 import {FormsModule} from '@angular/forms';
 import {ServiceService} from '../app/Service/service.service';
-import {HttpClient} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import { RegistrarComponent } from './caja/registrar/registrar.component';
 @NgModule({
   declarations: [
@@ -18,6 +18,7 @@ import { RegistrarComponent } from './caja/registrar/registrar.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [ServiceService],
   bootstrap: [AppComponent]

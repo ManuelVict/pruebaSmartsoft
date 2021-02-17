@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceService } from 'src/app/Service/service.service';
+import {Router} from '@angular/router';
+import {Producto} from '../../Modelo/Producto'
 
 @Component({
   selector: 'app-registrar',
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registrar.component.css']
 })
 export class RegistrarComponent implements OnInit {
+ 
 
-  constructor() { }
+  constructor(private service:ServiceService, private router:Router) { }
+  producto!:Producto;
 
-  ngOnInit(): void {
+  ngOnInit(){
+    this.service.getProducto();
   }
 
 }
