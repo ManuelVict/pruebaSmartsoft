@@ -15,4 +15,8 @@ export class ServiceService {
   getProducto(){
     return this.http.get<Producto>(this.Url);
   }
+
+  createProducto(producto:Producto){
+    return this.http.post<Producto>(this.Url,producto);
+  }
 }

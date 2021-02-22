@@ -15,7 +15,10 @@ export class AppComponent {
     this.router.navigate(['registrar']);
   }
   CrearFactura(){
-    this.router.navigate(['CrearFactura'])
+    this.router.navigate(['CrearFactura']);
+  }
+  Nuevo(){
+    this.router.navigate(['nuevo']);
   }
 
 }

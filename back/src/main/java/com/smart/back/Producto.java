@@ -4,14 +4,14 @@ import javax.persistence.*;
 @Table(name="producto")
 public class Producto {
     @Id
-    @Column
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="id_producto")
     private int id_producto;
-    @Column
+    @Column(name="nombre")
     private String nombre;
-    @Column
+    @Column(name="precio")
     private float precio;
-    @Column
+    @Column(name="stock")
     private int stock;
 
     public int getId_producto() {

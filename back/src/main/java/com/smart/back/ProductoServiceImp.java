@@ -21,6 +21,6 @@ public class ProductoServiceImp implements ProductoService{
 
     @Override
     public Producto add(Producto p) {
-        return null;
+        return repositorio.save(p);
     }
 }

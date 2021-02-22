@@ -8,11 +8,13 @@ import {FormsModule} from '@angular/forms';
 import {ServiceService} from '../app/Service/service.service';
 import {HttpClientModule} from '@angular/common/http';
 import { RegistrarComponent } from './caja/registrar/registrar.component';
+import { NuevoComponent } from './caja/nuevo/nuevo.component';
 @NgModule({
   declarations: [
     AppComponent,
     CrearFacturaComponent,
-    RegistrarComponent
+    RegistrarComponent,
+    NuevoComponent
   ],
   imports: [
     BrowserModule,
