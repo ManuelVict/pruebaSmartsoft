@@ -19,4 +19,8 @@ export class ServiceService {
   createProducto(producto:Producto){
     return this.http.post<Producto>(this.Url,producto);
   }
+
+  getProductoId(id:number){
+    return this.http.get<Producto>(this.Url+"/"+id);
+  }
 }

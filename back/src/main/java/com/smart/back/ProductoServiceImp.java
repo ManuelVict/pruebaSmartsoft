@@ -16,7 +16,7 @@ public class ProductoServiceImp implements ProductoService{
 
     @Override
     public Producto listarId(int id) {
-        return null;
+        return repositorio.findById(id);
     }
 
     @Override
