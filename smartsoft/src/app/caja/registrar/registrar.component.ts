@@ -4,8 +4,9 @@ import {Router} from '@angular/router';
 import {Producto} from '../../Modelo/Producto'
 import {Factura} from '../../Modelo/Factura'
 import {Detalle} from '../../Modelo/Detalle'
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
-
+var lista1 : any[]=[]
 var lista : any[] =[];
 @Component({
   selector: 'app-registrar',
@@ -14,6 +15,8 @@ var lista : any[] =[];
 })
 
 export class RegistrarComponent implements OnInit {
+  modificarProducto:Producto=new Producto
+  arranque :number=73
   respuesta :any =lista;
   producto:Producto=new Producto();
   factura:Factura=new Factura();
@@ -21,6 +24,7 @@ export class RegistrarComponent implements OnInit {
   cantidad :any[]=[]
   cedula:number=0
   apoyo:number=11
+
 
   sx:Factura={
     'num_factura':3,
@@ -35,7 +39,6 @@ export class RegistrarComponent implements OnInit {
   ngOnInit(){
 
     this.service.getProducto();
-
   }
 
   registrar(id:number){
@@ -45,30 +48,54 @@ export class RegistrarComponent implements OnInit {
     auxiliar.subscribe((resp) => {
     resp.stock=+x.value;
     lista.push(resp);
-    console.log(lista)
     var y=<HTMLInputElement> document.getElementById('cc')
     this.cedula=+y.value;
-
     }) 
     //this.service.getProductoId(id)      .subscribe(data=>{        alert("Se busco con exito");           }
     //console.log(JSON.stringify(auxiliar))  
   }
 
   enviarFactura(){
-
-    var ono=4;
+    var ono=this.cedula;
     var fechaActual= new Date();
-    console.log(this.sx)
-    this.service.CreateFactura(this.sx)
-    .subscribe(data=>{
-      alert("Se agrego con exito");
-      //this.router.navigate(["lsitar"]);
+    this.service.CreateFactura({'num_factura':1,'id_cliente':ono,'fecha':new Date()  }) 
+    .subscribe(data=>{alert("Se agrego con exito");})
+    this.registrarDetalle()
 
+
+  }
+
+  registrarDetalle(){
+    
+    let aux=this.service.getFacturas()
+    aux.subscribe((resp)=>{
+      console.log(resp)
     })
+    var auxCantidad =<HTMLInputElement> document.getElementById('cn')
+    this.arranque=this.arranque+1
+    for(var i in lista){
+      this.service.CreateDetalle({ 'id':1,'id_factura':this.arranque,'id_producto':lista[i].id_producto,'cantidad':+auxCantidad,'precio':lista[i].precio })
+      .subscribe(data=>{})
+      console.log(lista.length)
+      let obtProducto=this.service.getProductoId(lista[i].id_producto)
+      let aux= obtProducto.subscribe((resp)=> 
+        {
+          lista1.push(resp)       
+          console.log(lista1)
+          this.service.updateStock({'id':lista1[i].id_producto, 'nombre':lista1[i].nombre, 'precio':lista1[i].precio, 'stock':2})
+          console.log( this.service.updateStock({'id':lista1[i].id_producto, 'nombre':lista1[i].nombre, 'precio':lista1[i].precio, 'stock':2}))
+ 
+        })
+        
+    
+    }
+    
+  }
 
-
-
-}
+  editar(producto:Producto){
+    console.log(producto.id)
+   this.service.updateStock({'id':producto.id, 'nombre':producto.nombre, 'precio':producto.precio, 'stock':2})
+  }
 
 }
 

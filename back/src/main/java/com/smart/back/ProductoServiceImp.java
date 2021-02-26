@@ -22,4 +22,10 @@ public class ProductoServiceImp implements ProductoService{
     public Producto add(Producto p) {
         return repositorio.save(p);
     }
+
+    public Producto edit(Producto p) {
+        return repositorio.save(p);
+    }
+
+
 }

@@ -26,5 +26,11 @@ public class Controlador {
     }
     @GetMapping(path={"/{id}"})
     public Producto listarId(@PathVariable("id") int id){return service.listarId(id);}
+    @PutMapping(path={"/{id}"})
+
+    public Producto editar(@RequestBody Producto p,@PathVariable("id") int id){
+        p.setId_producto(id);
+        return service.edit(p);
+    }
 
 }

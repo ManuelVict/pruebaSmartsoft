@@ -20,7 +20,7 @@ export class ClienteComponent implements OnInit {
     this.service.CreateCliente(this.cliente)
     .subscribe(data=>{
       alert("Se agrego con exito");
-      //this.router.navigate(["lsitar"]);
+      this.router.navigate(["registrar"]);
 
     })
   }
