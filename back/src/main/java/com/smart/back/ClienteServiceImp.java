@@ -2,24 +2,25 @@ package com.smart.back;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 @Service
-
-public class ProductoServiceImp implements ProductoService{
+public class ClienteServiceImp implements ClienteService{
     @Autowired
-    private ProductoRepository repositorio;
+    private ClienteRepository repositorio;
+
     @Override
-    public List<Producto> listar() {
-        return repositorio.findAll();
+    public List<Cliente> listar() {
+         return repositorio.findAll();
     }
 
     @Override
-    public Producto listarId(int id) {
+    public Cliente listarId(int id) {
         return repositorio.findById(id);
     }
 
     @Override
-    public Producto add(Producto p) {
-        return repositorio.save(p);
+    public Cliente add(Cliente c) {
+        return repositorio.save(c);
     }
 }

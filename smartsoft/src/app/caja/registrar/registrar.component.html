@@ -14,10 +14,13 @@
                 <div >
                   
                      <div style="text-align: right;" >
+                        <label>ID Cliente</label>
+                        <input type="number" class="form-control" placeholder="Ingrese CC cliente" name='idCliente' id='cc'>
+                        <br>
                         <label>Codigo producto</label>
                         <input [(ngModel)]="producto.id" type="text" class="form-control" placeholder="Ingrese el codigo" name='id'>
                         <br>
-                        <label>Cantidad producto</label>
+                        <label >Cantidad producto</label>
                         <input type="number"  style="width : 80px; heigth : 80px" class="form-control" name='cantidad' id='cn'>
                       </div>
                       <div style="text-align: right"> 
@@ -56,7 +59,8 @@
                                                    <td>{{item.id_producto}}</td> 
                                                    <td>{{item.nombre}}</td> 
                                                    <td>{{item.precio}}</td> 
-                                                   <td >{{item.stock}}</td> 
+                                                   <td>{{item.stock}}</td> 
+                                                   
                                                   
                                                 </tr>
                                             </tbody>
@@ -72,7 +76,7 @@
                 Total Compra:
               </label>
               <div style="text-align: right" >
-                <button class="btn btn-primary" >Crear Factura</button>
+                <button (click)="enviarFactura()"class="btn btn-primary" >Crear Factura</button>
               </div>
             </div>
 					</div>

@@ -12,8 +12,9 @@ import java.util.List;
 @RestController
 @RequestMapping({"/productos"})
 
+
 public class Controlador {
-    @Autowired  
+    @Autowired
     ProductoService service;
     @GetMapping
     public List<Producto> listar(){
@@ -24,8 +25,6 @@ public class Controlador {
         return service.add(p);
     }
     @GetMapping(path={"/{id}"})
-    public Producto listarId(@PathVariable("id") int id){
+    public Producto listarId(@PathVariable("id") int id){return service.listarId(id);}
 
-        return service.listarId(id);
-    }
 }

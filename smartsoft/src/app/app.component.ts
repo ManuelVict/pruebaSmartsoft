@@ -20,5 +20,8 @@ export class AppComponent {
   Nuevo(){
     this.router.navigate(['nuevo']);
   }
+  Cliente(){
+    this.router.navigate(['cliente'])
+  }
 
 }

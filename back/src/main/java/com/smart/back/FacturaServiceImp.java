@@ -5,21 +5,24 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 
-public class ProductoServiceImp implements ProductoService{
+public class FacturaServiceImp implements FacturaService {
     @Autowired
-    private ProductoRepository repositorio;
+    private FacturaRepository repositorio;
+
     @Override
-    public List<Producto> listar() {
+    public List<Factura> listar() {
         return repositorio.findAll();
     }
 
     @Override
-    public Producto listarId(int id) {
-        return repositorio.findById(id);
+    public Factura listarId(int id) {
+       return repositorio.findById(id);
     }
 
+
+
     @Override
-    public Producto add(Producto p) {
-        return repositorio.save(p);
+    public Factura add(Factura f) {
+        return repositorio.save(f);
     }
 }

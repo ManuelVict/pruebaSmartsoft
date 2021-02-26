@@ -9,12 +9,14 @@ import {ServiceService} from '../app/Service/service.service';
 import {HttpClientModule} from '@angular/common/http';
 import { RegistrarComponent } from './caja/registrar/registrar.component';
 import { NuevoComponent } from './caja/nuevo/nuevo.component';
+import { ClienteComponent } from './caja/cliente/cliente.component';
 @NgModule({
   declarations: [
     AppComponent,
     CrearFacturaComponent,
     RegistrarComponent,
-    NuevoComponent
+    NuevoComponent,
+    ClienteComponent
   ],
   imports: [
     BrowserModule,
