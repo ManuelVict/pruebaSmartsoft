@@ -5,9 +5,8 @@ import javax.persistence.*;
 public class Producto {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Basic(optional = false)
     @Column(name="id_producto")
-    private Integer id_producto;
+    private int id_producto;
     @Column(name="nombre")
     private String nombre;
     @Column(name="precio")

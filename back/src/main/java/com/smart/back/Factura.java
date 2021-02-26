@@ -4,23 +4,23 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="facturas")
+@Table(name="factura")
 public class Factura {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name="num_facturas")
-    private int num_facturas;
+    @Column(name="num_factura")
+    private int num_factura;
     @Column(name="id_cliente")
     private int id_cliente;
     @Column(name="fecha")
     private Date fecha;
 
     public int getNum_factura() {
-        return num_facturas;
+        return num_factura;
     }
 
     public void setNum_factura(int num_factura) {
-        this.num_facturas = num_factura;
+        this.num_factura = num_factura;
     }
 
     public int getId_cliente() {
